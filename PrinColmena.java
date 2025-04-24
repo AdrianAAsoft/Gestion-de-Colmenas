@@ -69,12 +69,51 @@ public class PrinColmena {
         return true;
     }
     // Función para registrar una nueva colmena
+    import java.util.ArrayList;
+import java.util.Scanner;
+
+public class GestorColmenas {
+
+    static ArrayList<Colmena> colmenas = new ArrayList<>();
+    static Scanner scanner = new Scanner(System.in);
+
     public static void registrarColmena() {
-        // TODO: Pedir datos al usuario (ID, ubicación, tipo, etc.)
-        // TODO: Validar los datos ingresados
-        // TODO: Crear objeto Colmena con los datos
-        // TODO: Agregar la colmena al ArrayList Colmenas
-        // TODO: Confirmar al usuario que se registró correctamente
+        System.out.println("Registro de nueva colmena");
+
+        try {
+            System.out.print("Ingrese ID de la colmena: ");
+            String id = scanner.nextLine().trim();
+
+            if (id.isEmpty()) {
+                System.out.println("El ID no puede estar vacío.");
+                return;
+            }
+
+            System.out.print("Ingrese ubicación de la colmena: ");
+            String ubicacion = scanner.nextLine().trim();
+
+            if (ubicacion.isEmpty()) {
+                System.out.println("La ubicación no puede estar vacía.");
+                return;
+            }
+
+            System.out.print("Ingrese tipo de colmena (Ej: Langstroth, Warre, Top-Bar): ");
+            String tipo = scanner.nextLine().trim();
+
+            if (tipo.isEmpty()) {
+                System.out.println("El tipo no puede estar vacío.");
+                return;
+            }
+
+            Colmena nuevaColmena = new Colmena(id, ubicacion, tipo);
+            colmenas.add(nuevaColmena);
+
+            System.out.println("✅ Colmena registrada correctamente.");
+        } catch (Exception e) {
+            System.out.println("❌ Error al registrar la colmena: " + e.getMessage());
+        }
+    }
+}
     }
 
     // Función para registrar un nuevo apicultor
