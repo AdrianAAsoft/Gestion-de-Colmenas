@@ -23,6 +23,7 @@ public class PrinColmena {
     // ─────────────────────────────────────────────────────────────
     public static void main(String[] args) {
         try {
+            Verificar()
             boolean continuar = true;
             while (continuar) {
                 mostrarMenu();
@@ -112,7 +113,6 @@ public void Verificar(){
      * Gestiona las acciones de guardado de datos al salir del sistema.
      */
     private static void manejarSalida() {
-        String ruta = Paths.get(System.getProperty("user.home"), "Documents", "colmenas.json").toString();
         File json = new File(ruta);
 
         if (json.exists()) {
