@@ -81,8 +81,7 @@ public class PrinColmena {
         5️📝  Mostrar Información Registrada
         6️🧑🏻‍🌾  Asignar Apicultor a Colmena
         7️📩  Editar Información Existente
-        8️🐝  Cargar Datos Colmena
-        9️🔚  Salir del Sistema
+         8🔚  Salir del Sistema
         """);
         System.out.print("📜 Indica tu próximo movimiento: ");
     }
