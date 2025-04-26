@@ -36,7 +36,7 @@ public static void GuardarColmena(DatosApicola datosApicola){
             instancia.obtenerColmenas().addAll(datosApicola.obtenerColmenas());
             instancia.obtenerApicultores().addAll(datosApicola.obtenerApicultores());
             instancia.obtenerAsignaciones().putAll(datosApicola.obtenerAsignaciones());
-            System.out.println("✅ Datos cargados correctamente desde archivo.");
+            Utils.delayPrint("✅ Datos cargados correctamente desde archivo.", 800);
 
         } catch (Exception e) {
             throw new RuntimeException("❌ Error al cargar los datos desde el archivo JSON", e);
