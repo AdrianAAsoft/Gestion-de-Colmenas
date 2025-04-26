@@ -23,7 +23,9 @@ public class PrinColmena {
     // ─────────────────────────────────────────────────────────────
     public static void main(String[] args) {
         try {
+
             Verificar();
+
             boolean continuar = true;
             while (continuar) {
                 mostrarMenu();
@@ -33,31 +35,34 @@ public class PrinColmena {
             throw new RuntimeException(e);
         }
     }
-public static void Verificar(){
+
+    // ─────────────────────────────────────────────────────────────
+    // Métodos auxiliares
+    // ─────────────────────────────────────────────────────────────
+
+    public static void Verificar(){
+
     File Json=new File(ruta);
 
     if (Json.exists()) {
 
-    System.out.println("Se encontró un archivo de datos en: " + ruta);
+    System.out.println("Se encontró un archivo de datos con informacion");
             System.out.println("¿Desea cargarlo? (si/no)");
             String respuesta = scanner.nextLine().trim().toLowerCase();
 
             if (respuesta.equals("si")) {
                 System.out.println("🐝Cargando archivo...🐝");
-                
+                LeerJson.CargarColmena();
             } else {
                 System.out.println("Advertencia: No cargar el archivo puede hacer que se pierdan los datos anteriores.");
             }
-        } 
+        }
         else {
-          
+
             System.out.println("No se encontró archivo de datos en: " + ruta);
             System.out.println("Se continuará normalmente.");
         }
     }
-    // ─────────────────────────────────────────────────────────────
-    // Métodos auxiliares
-    // ─────────────────────────────────────────────────────────────
 
     /**
      * Muestra el menú principal del sistema.
@@ -97,8 +102,7 @@ public static void Verificar(){
             case "5" -> { SistemaApicola.mostrarInformacion(); yield true; }
             case "6" -> { SistemaApicola.asignarApicultorAColmena(); yield true; }
             case "7" -> { SistemaApicola.editarInformacion(); yield true; }
-            case "8" -> { LeerJson.CargarColmena(); yield true; }
-            case "9" -> {
+            case "8" -> {
                 manejarSalida();
                 yield false;
             }
