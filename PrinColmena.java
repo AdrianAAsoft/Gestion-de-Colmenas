@@ -42,11 +42,11 @@ public class PrinColmena {
 
     public static void Verificar(){
 
-    File Json=new File(ruta);
+        File Json=new File(ruta);
 
-    if (Json.exists()) {
+        if (Json.exists()) {
 
-    System.out.println("Se encontró un archivo de datos con informacion");
+            System.out.println("Se encontró un archivo de datos con informacion");
             System.out.println("¿Desea cargarlo? (si/no)");
             String respuesta = scanner.nextLine().trim().toLowerCase();
 
@@ -58,7 +58,6 @@ public class PrinColmena {
             }
         }
         else {
-
             System.out.println("No se encontró archivo de datos en: " + ruta);
             System.out.println("Se continuará normalmente.");
         }
