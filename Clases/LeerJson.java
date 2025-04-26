@@ -27,13 +27,17 @@ public static void GuardarColmena(DatosApicola datosApicola){
 
     }
    
-    public static DatosApicola CargarColmena() {
-    String JsonRuta = Paths.get(System.getProperty("user.home"), "Documents", "colmenas.json").toString();
+    public static void CargarColmena() {
         try (FileReader lector = new FileReader(JsonRuta)) {
             Gson Archivo = new Gson();
             DatosApicola datosApicola = Archivo.fromJson(lector, DatosApicola.class);
+            DatosApicola instancia = DatosApicola.getInstancia();
+
+            instancia.obtenerColmenas().addAll(datosApicola.obtenerColmenas());
+            instancia.obtenerApicultores().addAll(datosApicola.obtenerApicultores());
+            instancia.obtenerAsignaciones().putAll(datosApicola.obtenerAsignaciones());
             System.out.println("✅ Datos cargados correctamente desde archivo.");
-            return datosApicola;
+
         } catch (Exception e) {
             throw new RuntimeException("❌ Error al cargar los datos desde el archivo JSON", e);
         }
