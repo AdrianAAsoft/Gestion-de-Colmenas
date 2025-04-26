@@ -178,7 +178,6 @@ public class SistemaApicola {
      */
     private static void mostrarColmenas() {
         mostrarLista(datos.colmenas);
-        Utils.delayPrint("Lista de colmenas", 5000);
     }
 
     /**
