@@ -3,8 +3,6 @@ package Clases.Principales;
 // ─────────────────────────────────────────────────────────────
 // Imports
 // ─────────────────────────────────────────────────────────────
-import java.util.ArrayList;
-import java.util.List;
 
 // ─────────────────────────────────────────────────────────────
 // Clase principal
@@ -27,7 +25,7 @@ public class GestorColmenas {
             String estadoSalud = solicitarEstadoSalud();
             String tipo = Utils.solicitarCampo("Ingrese tipo de colmena (Ej: Langstroth, Warre, Top-Bar): ");
             byte cantidadAbejas = Utils.solicitarByteEnRango("Cantidad de abejas (0–25): ", (byte) 0, (byte) 25);
-            float produccionMiel = Utils.solicitarFloatMin("Producción estimada de miel (kg): ", 0f);
+            float produccionMiel = Utils.solicitarFloatRango("Producción estimada de miel (kg) (0 a 1000): ", 0f, 1000f);
 
             Colmena nuevaColmena = new Colmena(id, ubicacion, tipo, estadoSalud, cantidadAbejas, produccionMiel);
 
@@ -46,7 +44,7 @@ public class GestorColmenas {
         String modo = Utils.solicitarCampo("""
         🔍 ¿Desea inspeccionar una sola colmena o todas?
         Escriba: 'una' o 'todas'
-        👉 """).trim().toLowerCase();
+        👉""").trim().toLowerCase();
 
         switch (modo) {
             case "una" -> inspeccionarUnaColmena();
