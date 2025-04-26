@@ -70,7 +70,7 @@ public class SistemaApicola {
         // Captura datos adicionales de la nueva abeja reina
         byte edad = Utils.solicitarByteEnRango("Edad (días): ", (byte) 0, (byte) (5 * 365));
         String salud = solicitarEstadoSaludReina();
-        float productividad = Utils.solicitarFloatRango("Productividad de la abeja reina (0 a 10): ", 0f, 10f);
+        float productividad = Utils.solicitarFloatRango("Productividad de la abeja reina (0 a 10): ", 0f, 100f);
 
         // Crea y agrega la nueva abeja reina
         AbejaReina reina = new AbejaReina(idReina, salud, edad, productividad);
@@ -314,7 +314,7 @@ public class SistemaApicola {
 
         String nuevoEstadoSalud = solicitarEstadoSaludReina();
         byte nuevaEdad = Utils.solicitarByteEnRango("Nueva Edad (días): ", (byte) 0, (byte) (5 * 365));
-        float nuevaProductividad = Utils.solicitarFloatRango("Nueva Productividad: ", 0f, 1000f);
+        float nuevaProductividad = Utils.solicitarFloatRango("Nueva Productividad: ", 0f, 100f);
 
         abejasExistentes.set(indiceAbejaReina, new AbejaReina(
                 idExistente,
