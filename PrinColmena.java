@@ -17,13 +17,13 @@ public class PrinColmena {
     // ─────────────────────────────────────────────────────────────
     static final DatosApicola datosApicola = DatosApicola.getInstancia();
     static final Scanner scanner = new Scanner(System.in);
-    String ruta = Paths.get(System.getProperty("user.home"), "Documents", "colmenas.json").toString();
+    public static String ruta = Paths.get(System.getProperty("user.home"), "Documents", "colmenas.json").toString();
     // ─────────────────────────────────────────────────────────────
     // Método principal
     // ─────────────────────────────────────────────────────────────
     public static void main(String[] args) {
         try {
-            Verificar()
+            Verificar();
             boolean continuar = true;
             while (continuar) {
                 mostrarMenu();
@@ -33,7 +33,7 @@ public class PrinColmena {
             throw new RuntimeException(e);
         }
     }
-public void Verificar(){
+public static void Verificar(){
     File Json=new File(ruta);
 
     if (Json.exists()) {
